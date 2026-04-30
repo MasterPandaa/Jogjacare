@@ -1,203 +1,580 @@
-<p align="center"><img src="https://user-images.githubusercontent.com/396987/82162573-6940f500-98c7-11ea-974e-888b4f866c74.jpg" alt="Laravel Starter - A CMS like modular starter project built with the latest Laravel framework."></p>
+# JogjaCare - Healthcare Management System
 
-# Laravel Starter (based on Laravel 11.x)
-**Laravel Starter** is a Laravel 11.x based simple starter project. Most of the commonly needed features of an application like `Authentication`, `Authorisation`, `Users` and `Role management`, `Application Backend`, `Backup`, `Log viewer` are available here. It is modular, so you may use this project as a base and build your own modules. A module can be used in any `Laravel Starter` based project.
-Here Frontend and Backend are completely separated with separate routes, controllers, and themes as well.
+A modular healthcare information management system built on Laravel 11.x, designed to manage medical centers, healthcare services, points of care, medical costs, and alternative medicine providers.
 
-***Please let me know your feedback and comments.***
+---
 
-[![Latest Stable Version](http://poser.pugx.org/nasirkhan/laravel-starter/v)](https://packagist.org/packages/nasirkhan/laravel-starter) [![StyleCI Build](https://github.styleci.io/repos/105638882/shield?style=flat)](https://packagist.org/packages/nasirkhan/laravel-starter) [![License](http://poser.pugx.org/nasirkhan/laravel-starter/license)](https://packagist.org/packages/nasirkhan/laravel-starter) [![PHP Version Require](http://poser.pugx.org/nasirkhan/laravel-starter/require/php)](https://packagist.org/packages/nasirkhan/laravel-starter)
+## Table of Contents
 
+- [Overview](#overview)
+- [System Architecture](#system-architecture)
+- [Technology Stack](#technology-stack)
+- [Core Features](#core-features)
+- [Medical Modules](#medical-modules)
+- [Directory Structure](#directory-structure)
+- [Installation Guide](#installation-guide)
+- [Configuration](#configuration)
+- [Custom Commands](#custom-commands)
+- [User Roles & Permissions](#user-roles--permissions)
+- [API & Routes](#api--routes)
+- [Docker Support](#docker-support)
+- [Security](#security)
+- [Development Guidelines](#development-guidelines)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
-# Reporting a Vulnerability
-If you discover any security-related issues, please send an e-mail to Nasir Khan Saikat via nasir8891@gmail.com instead of using the issue tracker.
+## Overview
 
-# Appplication Demo
-Check the following demo project. It is just a straight installation of the project without any modification.
+JogjaCare is a comprehensive healthcare information management platform developed to support medical service providers in Yogyakarta. The system enables administrators to manage medical centers, healthcare services, medical cost information, points of care, and alternative medicine providers through a centralized admin dashboard, while providing public access to healthcare information via a responsive frontend interface.
 
-Demo URL: https://laravel.nasirkhn.com
+### Key Objectives
+- Centralize healthcare facility information for the Yogyakarta region
+- Provide role-based access control for administrators and content managers
+- Support modular expansion for future healthcare service categories
+- Enable multi-language support for diverse user communities
+- Maintain data integrity with backup and audit logging capabilities
 
-You may use the following account credentials to access the application backend.
+## System Architecture
+
+JogjaCare follows a modular monolith architecture built on the Laravel framework:
+
+- **Frontend Layer**: Public-facing interface built with Tailwind CSS, responsive design, dark mode support
+- **Backend Layer**: Admin dashboard built with Bootstrap 5 and CoreUI, separate route namespace under `/admin`
+- **Module System**: 5 healthcare-specific modules managed via `nwidart/laravel-modules`
+- **Database Layer**: SQLite by default (configurable for MySQL/PostgreSQL), with migration and seeding support
+- **Authentication**: Laravel Breeze with social login integration (Google, Facebook, GitHub)
+- **Authorization**: Spatie Laravel Permission for role-based access control
+- **File Management**: Laravel File Manager for media uploads
+- **Activity Logging**: Spatie Laravel Activity Log for audit trails
+
+### Modular Design
+
+Each medical domain is implemented as an independent module with its own:
+- Routes (frontend and backend)
+- Controllers
+- Models
+- Database migrations
+- Views (Blade templates)
+- Configuration files
+- Language files
+
+## Technology Stack
+
+### Backend
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| PHP | ^8.2 | Core language |
+| Laravel | ^11.0 | Web framework |
+| SQLite | default | Database (MySQL/PostgreSQL supported) |
+| Spatie Permission | ^6.4 | Role-based access control |
+| Spatie Media Library | ^11.4 | File uploads and media management |
+| Spatie Backup | ^8.6 | Application backup |
+| Spatie Activity Log | ^4.8 | Audit logging |
+| Laravel Socialite | ^5.12 | OAuth authentication |
+| Livewire | ^3.4 | Dynamic UI components |
+| Yajra DataTables | ^11.0 | Admin data tables |
+| Intervention Image | ^3.7 | Image processing |
+| UniSharp File Manager | ^2.9 | File browser |
+
+### Frontend
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| Tailwind CSS | ^3.4 | Frontend styling |
+| Bootstrap | ^5.3 | Admin dashboard styling |
+| CoreUI | ^5.0 | Admin UI components |
+| FontAwesome | ^6.5 | Icons |
+| AlpineJS | ^3.4 | Frontend interactions |
+| Vite | ^5.2 | Asset bundling |
+| Sass | ^1.72 | CSS preprocessing |
+| Flowbite | ^2.3 | UI components |
+
+### DevOps & Tools
+| Tool | Purpose |
+|------|---------|
+| Laravel Pint | Code style fixing |
+| Laravel Sail | Docker development |
+| PHPUnit | Unit testing |
+| Laravel Debugbar | Development debugging |
+| Laravel Ignition | Error page styling |
+
+## Core Features
+
+### Authentication & Authorization
+- **Multi-auth system**: Local registration/login with email verification
+- **Social login**: Google, Facebook, GitHub OAuth integration
+- **Role-based access**: Granular permissions via Spatie Laravel Permission
+- **User management**: Create, edit, block, unblock, soft-delete users
+- **Profile management**: Avatar upload, password change, email verification resend
+
+### Admin Dashboard
+- **Backend namespace**: All admin routes under `/admin` with `view_backend` permission
+- **Dark mode**: Toggle between light and dark themes
+- **DataTables**: Sortable, searchable tables for all resources
+- **File manager**: Laravel File Manager integration for media handling
+- **Backup manager**: Generate and download ZIP backups (database + files + source)
+- **Log viewer**: Browse and monitor application logs via ArcaneDev Log Viewer
+- **Activity log**: Track all user actions and system events
+- **Notifications**: Dashboard and detail view for system notifications
+- **Settings**: Dynamic application configuration
+
+### Frontend
+- **Public pages**: Home, About Us, Contact, Partner pages
+- **Healthcare directories**: Browse medical facilities by category
+- **Responsive design**: Mobile-first Tailwind CSS layout
+- **Dark mode**: Automatic/manual theme switching
+- **Localization**: Multi-language support with language switcher
+- **Livewire components**: Privacy policy and terms pages
+
+### Content Management
+- **Dynamic menu system**: Configurable navigation menus
+- **WYSIWYG editor**: Rich text editing for content
+- **File browser**: Integrated media upload and selection
+- **SEO-friendly URLs**: Slug-based routing for public content
+
+## Medical Modules
+
+JogjaCare implements 5 specialized healthcare modules:
+
+### 1. MedicalCenter
+Manages hospitals and medical center listings. Each center includes detailed information about facilities, departments, services, and contact details. Supports both frontend public browsing and backend administration.
+
+### 2. MedicalCare
+Handles general healthcare services and care programs. Enables management of medical service offerings, care packages, and health program descriptions accessible to the public.
+
+### 3. MedicalPoint
+Manages specific points of care such as clinics, health posts, and primary care facilities. Provides location-based information and service availability for smaller healthcare providers.
+
+### 4. MedicalCost
+Maintains medical cost information and pricing data for various treatments, procedures, and healthcare services. Supports transparent cost disclosure for patient reference.
+
+### 5. MedicalAlter
+Manages alternative medicine providers including traditional medicine, herbal clinics, acupuncture, and other complementary healthcare services available in the Yogyakarta region.
+
+### Module Architecture
+Each module follows the Laravel Modules package structure:
+```
+Modules/{ModuleName}/
+├── Config/
+├── Console/
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── Http/
+│   ├── Controllers/
+│   │   ├── Backend/
+│   │   └── Frontend/
+│   └── Requests/
+├── Models/
+├── Providers/
+├── Resources/
+│   └── views/
+│       ├── backend/
+│       └── frontend/
+├── Routes/
+│   ├── web.php
+│   └── api.php
+└── lang/
+```
+
+Module activation status is controlled via `modules_statuses.json`.
+
+## Directory Structure
 
 ```
-User: super@admin.com
-Pass: secret
-
-User: user@user.com
-Pass: secret
-
+jogjacare/
+├── app/
+│   ├── Console/           # Artisan commands
+│   ├── Events/            # Application events
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Auth/      # Authentication controllers
+│   │   │   ├── Backend/   # Admin dashboard controllers
+│   │   │   └── Frontend/  # Public page controllers
+│   │   └── Middleware/    # Custom middleware
+│   ├── Livewire/          # Livewire components
+│   ├── Mail/              # Mailable classes
+│   ├── Models/            # Eloquent models
+│   ├── Notifications/     # Notification classes
+│   └── Providers/         # Service providers
+├── bootstrap/
+├── config/                # Configuration files
+├── database/
+│   ├── factories/         # Model factories
+│   ├── migrations/        # Database migrations
+│   └── seeders/           # Database seeders
+├── Modules/               # Healthcare modules
+│   ├── MedicalCenter/
+│   ├── MedicalCare/
+│   ├── MedicalPoint/
+│   ├── MedicalCost/
+│   └── MedicalAlter/
+├── public/                # Web root
+├── resources/
+│   ├── views/
+│   │   ├── auth/          # Authentication views
+│   │   ├── backend/       # Admin dashboard views
+│   │   ├── frontend/      # Public page views
+│   │   ├── layouts/       # Master layouts
+│   │   ├── components/    # Blade components
+│   │   └── livewire/      # Livewire views
+│   ├── css/               # Stylesheets
+│   └── js/                # JavaScript files
+├── routes/
+│   ├── web.php            # Web routes
+│   ├── api.php            # API routes
+│   ├── auth.php           # Auth routes
+│   └── console.php        # Console routes
+├── storage/
+├── tests/                 # PHPUnit tests
+├── .env                   # Environment variables
+├── composer.json          # PHP dependencies
+├── package.json           # Node dependencies
+├── tailwind.config.js     # Tailwind configuration
+├── vite.config.js         # Vite configuration
+└── docker-compose.yml     # Docker services
 ```
 
-## Demo Data
-If you want to test the application on your local machine with additional demo data you may use the following command.
+## Installation Guide
 
-```php
+### Prerequisites
+- PHP >= 8.2
+- Composer
+- Node.js & NPM
+- SQLite (default) or MySQL/PostgreSQL
+- Git
 
-php artisan laravel-starter:insert-demo-data
+### Standard Installation
 
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url> jogjacare
+   cd jogjacare
+   ```
+
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
+
+3. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Environment configuration**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+   Edit `.env` to configure database and other settings.
+
+5. **Database setup**
+   ```bash
+   php artisan migrate --seed
+   ```
+   Default SQLite database will be created automatically.
+
+6. **Storage link**
+   ```bash
+   php artisan storage:link
+   ```
+
+7. **Build frontend assets**
+   ```bash
+   npm run build
+   ```
+   For development: `npm run dev`
+
+8. **Start the application**
+   ```bash
+   php artisan serve
+   ```
+   Visit `http://127.0.0.1:8000`
+
+### Default Admin Credentials
+After seeding, the following accounts are available:
+
+| Role | Email | Password |
+|------|-------|----------|
+| Super Admin | super@admin.com | secret |
+| Regular User | user@user.com | secret |
+
+### Post-Installation
+
+After creating new permissions, clear the permission cache:
+```bash
+php artisan cache:forget spatie.permission.cache
 ```
 
-There are options to truncate the `posts, categories, tags, and comments` tables and insert new demo data.
+## Configuration
 
-`--fresh` option will truncate the tables, without this command a new set of data will be inserted.
-
-```php
-
-php artisan laravel-starter:insert-demo-data --fresh
-
+### Database
+Edit `.env` to switch from SQLite to MySQL:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=jogjacare
+DB_USERNAME=root
+DB_PASSWORD=secret
 ```
 
-# Custom Commands
+### Social Login
+Configure OAuth credentials in `.env`:
+```env
+GOOGLE_ACTIVE=true
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+GOOGLE_REDIRECT=http://localhost/login/google/callback
 
-We have created a number of custom commands for the project. The commands are listed below with a brief about their use of it.
+FACEBOOK_ACTIVE=true
+FACEBOOK_CLIENT_ID=your-app-id
+FACEBOOK_CLIENT_SECRET=your-app-secret
 
-## Create New module
+GITHUB_ACTIVE=true
+GITHUB_CLIENT_ID=your-client-id
+GITHUB_CLIENT_SECRET=your-client-secret
+```
 
-To create a project use the following command, you have to replace the MODULE_NAME with the name of the module.
+### Application Settings
+Key `.env` variables:
+```env
+APP_NAME="JogjaCare"
+APP_URL=http://localhost
+APP_TIMEZONE="Asia/Dhaka"
 
-```php
+USER_REGISTRATION=true
+INITIAL_USERNAME=100000
+
+MAIL_MAILER=log
+MAIL_FROM_ADDRESS="hello@example.com"
+```
+
+### Localization
+Multi-language support is enabled across the project. Language files are located in:
+- `lang/` - Core application translations
+- `Modules/{Module}/lang/` - Module-specific translations
+
+Available locales can be configured in `config/app.php`.
+
+## Custom Commands
+
+### Module Management
+
+**Create a new module**
+```bash
 php artisan module:build MODULE_NAME
 ```
-
-You may want to use `--force` option to overwrite the existing module. if you use this option, it will replace all the existing files with the default stub files.
-
-```php
+Use `--force` to overwrite existing module files:
+```bash
 php artisan module:build MODULE_NAME --force
 ```
 
-## Clear All Cache
+### Cache Management
 
+**Clear all caches**
 ```bash
 composer clear-all
 ```
+This clears config, route, view, compiled, and permission caches in one command.
 
-this is a shortcut command to clear all cache including config, route, and more
+### Code Quality
 
-## Code Style Fix
-
-We are now using `Laravel Pint` to make the code style stay as clean and consistent as the Laravel Framework. Use the following command to apply CS-Fix.
-
+**Fix code style with Laravel Pint**
 ```bash
 composer pint
 ```
 
-## Role - Permissions
+### Role & Permission Commands
 
-Several custom commands are available to add and update `role-permissions`. Please read the [Role - Permission Wiki page](https://github.com/nasirkhan/laravel-starter/wiki/Role-Permission), where you will find the list of commands with examples.
+Several commands are available for managing role-permissions. Refer to the [Role-Permission Wiki](https://github.com/nasirkhan/laravel-starter/wiki/Role-Permission) for detailed examples.
 
-
-# Features
-
-The `Laravel Starter` comes with several features which are the most common in almost all applications. It is a template project which means it is intended to be built in a way that it can be used for other projects.
-
-It is a modular application, and some modules are installed by default. It will be helpful to use it as a base for future applications.
-
-* Admin feature and public views are completely separated as `Backend` and `Frontend` namespace.
-* Major features are developed as `Modules`. A module like Posts, Comments, and Tags are separated from the core features like User, Role, Permission
-
-
-## Core Features
-
-* User Authentication
-* Social Login
-  * Google
-  * Facebook
-  * Github
-  * Build in a way adding more is much easier now
-* User Profile with Avatar
-* Role-Permissions for Users
-* Dynamic Menu System
-* Language Switcher
-* Localization enabled across the project
-* Backend Theme
-  * Bootstrap 5, CoreUI
-  * Fontawesome 6
-  * Dark Mode
-* Frontend Theme
-  * Tailwind
-  * Fontawesome 6
-  * Dark Mode
-* Article Module
-  * Posts
-  * Categories
-  * Tags
-  * Comments
-  * wysiwyg editor
-  * File browser
-* Application Settings
-* External Libraries
-  * Bootstrap 5
-  * Fontawesome 6
-  * CoreUI
-  * Tailwind
-  * Datatables
-  * Select2
-  * Date Time Picker
-* Backup (Source, Files, Database as Zip)
-* Log Viewer
-* Notification
-  * Dashboard and details view
-
-
-# User Guide
-
-## Installation
-
-Follow the steps mentioned below to install and run the project. You may find more details about the installation in [Installation Wiki](https://github.com/nasirkhan/laravel-starter/wiki/Installation).
-
-1. Open the terminal and run the following command, this will download and install the `Laravel Starter` and run the post-installation commands. 
+Common commands:
 ```bash
-composer create-project nasirkhan/laravel-starter
+php artisan cache:forget spatie.permission.cache
+php artisan permission:cache-reset
 ```
-2. The default database is `sqlite`, if you want to change please update the database settings at `.env` file
-3. To create a link from the storage directory, run the following command from the project root:
-```php
+
+## User Roles & Permissions
+
+JogjaCare implements granular access control via Spatie Laravel Permission.
+
+### Default Permissions
+- `view_backend` - Access admin dashboard
+- `edit_settings` - Modify application settings
+- `block_users` - Block/unblock user accounts
+- Module-specific permissions are auto-generated for each healthcare module (view, create, edit, delete, restore)
+
+### Default Roles
+- **Super Administrator**: Full system access
+- **Administrator**: Backend access with limited settings
+- **Manager**: Content management for specific modules
+- **User**: Frontend access only
+
+### Managing Permissions
+Permissions can be assigned via:
+- Admin UI (Users > Roles)
+- Artisan commands
+- Database seeders
+
+## API & Routes
+
+### Route Structure
+
+| Namespace | Prefix | Middleware | Purpose |
+|-----------|--------|------------|---------|
+| `App\Http\Controllers\Frontend` | `/` | `web` | Public pages |
+| `App\Http\Controllers\Backend` | `/admin` | `auth`, `can:view_backend` | Admin dashboard |
+| `Modules\{Module}\Http\Controllers\Frontend` | `/` | `web` | Module public pages |
+| `Modules\{Module}\Http\Controllers\Backend` | `/admin` | `auth`, `can:view_backend` | Module admin pages |
+
+### Key Routes
+
+**Public routes**
+- `/` - Homepage
+- `/home` - Home alias
+- `/aboutus` - About page
+- `/contact` - Contact form
+- `/partner` - Partners page
+- `/medicalcenters` - Medical centers listing
+- `/medicalcenters/{id}/{slug}` - Medical center detail
+
+**Admin routes**
+- `/admin` - Dashboard
+- `/admin/users` - User management
+- `/admin/roles` - Role management
+- `/admin/settings` - Application settings
+- `/admin/backups` - Backup management
+- `/admin/notifications` - System notifications
+- `/admin/medicalcenters` - Module content management
+
+**File Manager**
+- `/laravel-filemanager` - File upload and browser (auth required)
+
+## Docker Support
+
+JogjaCare includes Laravel Sail for containerized development.
+
+### Sail Installation
+
+1. Clone repository and install dependencies:
+   ```bash
+   composer install
+   ```
+
+2. Create environment from Sail template:
+   ```bash
+   cp .env-sail .env
+   ```
+
+3. Start containers:
+   ```bash
+   ./vendor/bin/sail up
+   ```
+   Or with alias:
+   ```bash
+   alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+   sail up
+   ```
+
+4. Run migrations:
+   ```bash
+   sail artisan migrate --seed
+   ```
+
+5. Create storage link:
+   ```bash
+   sail artisan storage:link
+   ```
+
+6. Visit `http://localhost`
+
+## Security
+
+### Authentication
+- Password hashing with Laravel default bcrypt
+- Email verification required for new accounts
+- Remember token support
+- Session-based authentication with file driver (configurable)
+
+### Authorization
+- Role-based access control on all admin routes
+- Permission checks for sensitive operations (user blocking, settings edit)
+- Middleware-protected file manager
+
+### Data Protection
+- Soft deletes on User model with `deleted_by` tracking
+- Media file hashing via Spatie Media Library
+- CSRF protection on all forms
+- XSS protection via Laravel Blade escaping
+
+### Reporting Vulnerabilities
+If you discover security-related issues, please email `nasir8891@gmail.com` instead of using the issue tracker.
+
+## Development Guidelines
+
+### Adding a New Module
+1. Use the module generator:
+   ```bash
+   php artisan module:build NewModule
+   ```
+2. Register routes in `Modules/NewModule/Routes/web.php`
+3. Create frontend and backend controllers
+4. Add migrations to `Modules/NewModule/database/migrations/`
+5. Create Blade views in `Modules/NewModule/Resources/views/`
+6. Update `modules_statuses.json` to enable
+
+### Frontend Asset Building
+```bash
+npm run dev     # Development with hot reload
+npm run build   # Production build
+```
+
+### Code Style
+Always run Laravel Pint before committing:
+```bash
+composer pint
+```
+
+### Testing
+Run PHPUnit tests:
+```bash
+php artisan test
+```
+
+## Troubleshooting
+
+### Permission Cache Issues
+If roles/permissions are not working after changes:
+```bash
+php artisan cache:forget spatie.permission.cache
+php artisan permission:cache-reset
+```
+
+### Module Not Loading
+Check `modules_statuses.json` and ensure the module is set to `true`.
+
+### File Upload Failures
+Ensure storage link exists:
+```bash
 php artisan storage:link
 ```
-4. If you run the `create-project` command from `Laravel Hard` then the site will be available at [http://laravel-starter.test](http://laravel-starter.test). You may create a virtualhost entry to access the application or run `php artisan serve` from the project root and visit `http://127.0.0.1:8000`
 
-*After creating the new permissions use the following commands to update cashed permissions.*
+### Asset Build Errors
+Clear and reinstall Node modules:
+```bash
+rm -rf node_modules
+npm install
+npm run build
+```
 
-`php artisan cache:forget spatie.permission.cache`
+### Database Locked (SQLite)
+If you see "database is locked" errors during migration:
+```bash
+php artisan cache:clear
+php artisan config:clear
+```
 
-## Docker and Laravel Sail
-This project is configured with Laravel Sail (https://laravel.com/docs/sail). You can use all the docker functionalities here. To install using docker and sail:
+## License
 
-1. Clone or download the repository
-2. Go to the project directory and run `composer install`
-3. Create `.env` file by copying the `.env-sail`. You may use the command to do that `cp .env-sail .env`
-4. Update the database name and credentials in `.env` file
-5. Run the command `sail up` (consider adding this to your alias: `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`)
-6. Run the command `sail artisan migrate --seed`
-7. Link storage directory: `sail artisan storage:link`
-8. Since Sail is already up, you can just visit http://localhost:80
-
-
-# Screenshots
-
-__Home Page__
-
-![Laravel Starter Homepage Dark Mode](https://github.com/nasirkhan/laravel-starter/assets/396987/1cf5ce5a-f374-4bae-b5a3-69e8d7ff684d)
-![Laravel Starter Homepage](https://github.com/nasirkhan/laravel-starter/assets/396987/93341711-60dd-4624-8cd7-82f1c611287d)
-
-__Login Page__
-
-![Laravel Starter Login](https://user-images.githubusercontent.com/396987/164892620-3b4c8b1b-81c8-4630-a39f-38dadff89a7d.png)
-
-__Posts Page__
-
-![Laravel Starter Posts Page](https://github.com/nasirkhan/laravel-starter/assets/396987/288f56cb-0cb0-4652-be17-9f65288558bb)
-
-__Backend Dashboard__
-
-![Laravel Starter Admin Dashboard Dark Mode](https://github.com/nasirkhan/laravel-starter/assets/396987/0f6b8201-6f6a-429f-894b-4e491cc5eba4)
-![Laravel Starter Admin Dashboard](https://github.com/nasirkhan/laravel-starter/assets/396987/f8131011-2ecc-4a11-961f-85e02cb8f7a1)
-
----
-
-![Laravel Starter Posts List](https://github.com/nasirkhan/laravel-starter/assets/396987/c032769e-78b2-4dbf-bc5e-687645125796)
-
----
-
-![Edit-Posts-Laravel-Starter](https://github.com/nasirkhan/laravel-starter/assets/396987/6421b8e5-3c69-4c1f-9518-875e72be77c0)
-
+This project is licensed under the GPL-3.0-or-later License. See `LICENSE.md` for details.
