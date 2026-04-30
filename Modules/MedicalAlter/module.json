@@ -1,0 +1,13 @@
+{
+    "name": "MedicalAlter",
+    "alias": "medicalalter",
+    "description": "Alternative and Traditional Medicine represents a variety of healing and therapeutic practices that exist alongside or as alternatives to conventional Western medicine. These approaches, deeply rooted in various cultural traditions and historical practices, offer different perspectives on health, healing, and the human body.At its core, Alternative and Traditional Medicine is characterized by a holistic approach to health. In contrast to the often compartmentalized view of Western medicine, these practices typically consider the whole person – body, mind, and spirit – as interconnected elements of health.  This holistic philosophy underlies many of the therapies and treatments in this broad category, from acupuncture and herbal medicine to meditation and energy healing. The scope of Alternative and Traditional Medicine is very broad and varied. This includes established systems such as Traditional Chinese Medicine (TCM), which has developed over thousands of years and combines practices such as acupuncture, herbal medicine, and qi gong. Likewise, Ayurveda, an ancient Indian system of medicine, focuses on balancing the body's energy through diet, herbs, and lifestyle practices. Other prominent forms include naturopathy, homeopathy, chiropractic care, and various forms of energy therapy.",
+    "keywords": ["medicalalter"],
+    "priority": 0,
+    "providers": [
+        "Modules\\MedicalAlter\\Providers\\MedicalAlterServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

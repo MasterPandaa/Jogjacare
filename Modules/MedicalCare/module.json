@@ -1,0 +1,13 @@
+{
+    "name": "MedicalCare",
+    "alias": "medicalcare",
+    "description": "Medical care is a cornerstone of modern society, encompassing a broad spectrum of services and practices designed to maintain, restore, and improve human health. At its core, medical care represents an organized effort to address health problems, prevent disease, and improve overall well-being through the application of scientific knowledge, clinical expertise, and compassionate care. The scope of health services is very broad and varied. This starts with primary health care, the first line of defense in health care, where general practitioners and family doctors provide routine check-ups, preventive services, and treat common health problems. This basic level of care serves as a gateway to more specialized services when needed, ensuring that patients receive appropriate attention for their specific health concerns.",
+    "keywords": ["medicalcare"],
+    "priority": 0,
+    "providers": [
+        "Modules\\MedicalCare\\Providers\\MedicalCareServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

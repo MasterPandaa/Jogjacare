@@ -1,0 +1,1 @@
+<img src="{{asset('img/JOGJACARE-blue.png')}}" style="height: 60px;">

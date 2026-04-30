@@ -1,0 +1,13 @@
+{
+    "name": "MedicalCenter",
+    "alias": "medicalcenter",
+    "description": "Hospital and medical centers are cornerstones of modern healthcare systems, serving as vital hubs for medical treatment, research, and education. These institutions play a crucial role in maintaining and improving public health, offering a wide range of services from emergency care to specialized treatments. As healthcare continues to evolve, hospitals and medical centers are adapting to meet the changing needs of patients and the advancements in medical science. At their core, hospitals are complex organizations designed to provide comprehensive medical care. They house a variety of departments, each specializing in different areas of medicine, such as cardiology, oncology, pediatrics, and surgery. This multidisciplinary approach allows for integrated care, where patients can receive treatment for various conditions under one roof. Modern hospitals are equipped with state-of-the-art technology, including advanced diagnostic tools like MRI and CT scanners, as well as sophisticated surgical equipment that enables minimally invasive procedures. Medical centers, often larger and more comprehensive than traditional hospitals, typically combine patient care with medical research and education. These institutions are often affiliated with universities, fostering an environment where medical knowledge is not only applied but also advanced. The integration of research into clinical practice allows for the rapid translation of scientific discoveries into patient care, potentially leading to groundbreaking treatments and improved health outcomes.",
+    "keywords": ["medicalcenter"],
+    "priority": 0,
+    "providers": [
+        "Modules\\MedicalCenter\\Providers\\MedicalCenterServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

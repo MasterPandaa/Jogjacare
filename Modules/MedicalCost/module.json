@@ -1,0 +1,13 @@
+{
+    "name": "MedicalCost",
+    "alias": "medicalcost",
+    "description": "Treatment costs are a major and frequently debated aspect of healthcare systems around the world. These expenses include all financial expenses related to health maintenance, disease prevention, and treatment of medical conditions. As healthcare advances and the population ages, understanding and managing medical costs becomes increasingly important for individuals, healthcare providers, and policy makers.Essentially, medical costs include direct expenses such as doctor visits, hospital stays, prescription drugs, and diagnostic tests. Medical expense coverage is complex and varies widely in different contexts. Factors such as geographic location, type of healthcare provider, complexity of the medical condition, and insurance coverage all play a role in determining the final cost of medical care. This variability can make it difficult for individuals to estimate and plan their health care costs, often leading to financial stress or, in some cases, avoidance of necessary medical care.",
+    "keywords": ["medicalcost"],
+    "priority": 0,
+    "providers": [
+        "Modules\\MedicalCost\\Providers\\MedicalCostServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
