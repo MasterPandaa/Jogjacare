@@ -1,7 +1,12 @@
 <p align="center">
   <a href="https://github.com/MasterPandaa/Jogjacare">
-    <img src="https://raw.githubusercontent.com/MasterPandaa/Jogjacare/main/assets/banner.svg" alt="Jogjacare Official Hero Banner" width="100%">
+    <img src="https://raw.githubusercontent.com/MasterPandaa/Jogjacare/main/public/img/logo-with-text.svg" alt="Jogjacare Official Banner" width="480">
   </a>
+</p>
+
+<p align="center">
+  <strong>Sistem Informasi Layanan Kesehatan &amp; Wisata Medis (Medical Tourism) Daerah Istimewa Yogyakarta</strong><br>
+  The digital gateway connecting domestic and international tourists with accredited healthcare facilities, 24/7 emergency medical points, procedure cost transparency, and traditional Javanese wellness in Yogyakarta.
 </p>
 
 <p align="center">
@@ -75,10 +80,6 @@
 ---
 
 ## 🏛️ System Architecture
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/MasterPandaa/Jogjacare/main/assets/banner-architecture.svg" alt="Jogjacare Architecture Blueprint" width="100%">
-</p>
 
 ### Modular Monolith Engineering
 
@@ -173,11 +174,8 @@ Jogjacare/
 │   ├── Http/Controllers/          # Medical care, tourism destination, and package controllers
 │   ├── Models/                     # Hospital, Clinic, Destination, Package, and User models
 │   └── Enums/                      # FacilityType, AttractionCategory, and Role enums
-├── assets/
-│   ├── banner.svg                  # Official Hero Banner with Jogjacare Emblem (White & Sky Blue)
-│   └── banner-architecture.svg     # Medical Tourism Platform Architecture Banner (Cyan & Navy)
 ├── public/img/
-│   ├── logo-with-text.svg          # Primary Vector Brand Logo
+│   ├── logo-with-text.svg          # Official Jogjacare Vector Banner
 │   ├── logo-with-text-dark.png     # Dark mode fallback brand asset
 │   ├── destinasi/                  # Tourism destination image assets
 │   ├── Partner/                    # Healthcare and hospital partner logos
