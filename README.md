@@ -1,36 +1,25 @@
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MasterPandaa/Jogjacare/main/public/img/logo-with-text.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MasterPandaa/Jogjacare/main/public/img/logo-with-text-dark.png">
-    <img alt="Jogjacare Medical & Health Tourism Platform" src="https://raw.githubusercontent.com/MasterPandaa/Jogjacare/main/public/img/logo-with-text.svg" width="380">
-  </picture>
-
-  <p align="center">
-    <strong>Integrated Medical Tourism & Healthcare Information Platform for Daerah Istimewa Yogyakarta</strong><br>
-    Bridging accredited healthcare institutions, 24/7 emergency proximity points, procedure cost transparency, and traditional Javanese wellness with Yogyakarta's premier cultural destinations.
-  </p>
-
-  <p align="center">
-    <a href="https://github.com/MasterPandaa/Jogjacare/releases"><img src="https://img.shields.io/github/v/release/MasterPandaa/Jogjacare?style=flat-square&color=27272a&labelColor=18181b" alt="Release"></a>
-    <a href="https://github.com/MasterPandaa/Jogjacare/actions"><img src="https://img.shields.io/badge/CI-Passing-27272a?style=flat-square&labelColor=18181b" alt="CI Status"></a>
-    <a href="https://github.com/MasterPandaa/Jogjacare/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-27272a?style=flat-square&labelColor=18181b" alt="License"></a>
-    <a href="#"><img src="https://img.shields.io/badge/PHP-%3E%3D%208.2-27272a?style=flat-square&labelColor=18181b" alt="PHP Version"></a>
-    <a href="#"><img src="https://img.shields.io/badge/Laravel-11.x-27272a?style=flat-square&labelColor=18181b" alt="Laravel 11"></a>
-    <a href="#"><img src="https://img.shields.io/badge/Livewire-3.x-27272a?style=flat-square&labelColor=18181b" alt="Livewire 3"></a>
-    <a href="#"><img src="https://img.shields.io/badge/Security-SAST%20Audited-27272a?style=flat-square&labelColor=18181b" alt="Security"></a>
-  </p>
-
-  <p align="center">
-    <a href="#-quickstart"><b>⚡ Quickstart</b></a> &nbsp;&bull;&nbsp;
-    <a href="#-core-pillars--capabilities"><b>✨ Core Pillars</b></a> &nbsp;&bull;&nbsp;
-    <a href="#-system-architecture"><b>🏛️ Architecture</b></a> &nbsp;&bull;&nbsp;
-    <a href="#-default-test-accounts"><b>🔑 Test Accounts</b></a> &nbsp;&bull;&nbsp;
-    <a href="#-academic-heritage--team"><b>🎓 Team & Heritage</b></a>
-  </p>
-</div>
+<p align="center">
+  <a href="https://github.com/MasterPandaa/Jogjacare">
+    <img src="https://raw.githubusercontent.com/MasterPandaa/Jogjacare/main/assets/banner.svg" alt="Jogjacare Official Hero Banner" width="100%">
+  </a>
+</p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MasterPandaa/Jogjacare/main/assets/banner.svg" alt="Jogjacare Official Hero Banner" width="100%">
+  <a href="https://github.com/MasterPandaa/Jogjacare/releases"><img src="https://img.shields.io/github/v/release/MasterPandaa/Jogjacare?style=flat-square&color=0284c7&labelColor=0c182e" alt="Release"></a>
+  <a href="https://github.com/MasterPandaa/Jogjacare/actions"><img src="https://img.shields.io/badge/CI-Passing-0284c7?style=flat-square&labelColor=0c182e" alt="CI Status"></a>
+  <a href="https://github.com/MasterPandaa/Jogjacare/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-0284c7?style=flat-square&labelColor=0c182e" alt="License"></a>
+  <a href="#"><img src="https://img.shields.io/badge/PHP-%3E%3D%208.2-0284c7?style=flat-square&labelColor=0c182e" alt="PHP Version"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Laravel-11.x-0284c7?style=flat-square&labelColor=0c182e" alt="Laravel 11"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Livewire-3.x-0284c7?style=flat-square&labelColor=0c182e" alt="Livewire 3"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Security-SAST%20Audited-0284c7?style=flat-square&labelColor=0c182e" alt="Security"></a>
+</p>
+
+<p align="center">
+  <a href="#-quickstart"><b>⚡ Quickstart</b></a> &nbsp;&bull;&nbsp;
+  <a href="#-core-pillars--capabilities"><b>✨ Core Pillars</b></a> &nbsp;&bull;&nbsp;
+  <a href="#-system-architecture"><b>🏛️ Architecture</b></a> &nbsp;&bull;&nbsp;
+  <a href="#-default-test-accounts"><b>🔑 Test Accounts</b></a> &nbsp;&bull;&nbsp;
+  <a href="#-academic-heritage--team"><b>🎓 Team & Heritage</b></a>
 </p>
 
 ---
@@ -185,8 +174,8 @@ Jogjacare/
 │   ├── Models/                     # Hospital, Clinic, Destination, Package, and User models
 │   └── Enums/                      # FacilityType, AttractionCategory, and Role enums
 ├── assets/
-│   ├── banner.svg                  # Official Hero Banner with Jogjacare Emblem
-│   └── banner-architecture.svg     # Medical Tourism Platform Architecture Banner
+│   ├── banner.svg                  # Official Hero Banner with Jogjacare Emblem (White & Sky Blue)
+│   └── banner-architecture.svg     # Medical Tourism Platform Architecture Banner (Cyan & Navy)
 ├── public/img/
 │   ├── logo-with-text.svg          # Primary Vector Brand Logo
 │   ├── logo-with-text-dark.png     # Dark mode fallback brand asset
@@ -214,7 +203,7 @@ Jogjacare was originally developed as an academic capstone initiative at **Unive
 | **Kharisma Alya Septiana** | `2211501004` | **Project Manager** — Project coordination, blueprint planning, and stakeholder alignment |
 | **Zefila Ardya Salsabila** | `2211501027` | **Content Writer & Clinical Editor** — Healthcare service cataloging, destination content, and editorial standards |
 | **Ahmad Haikal Naser** | `2211501010` | **Data Analyst** — Medical pricing data collection, regional analytics, and facility taxonomy |
-| **Syahrur Ramadhan** | `2211501047` | **Quality Assurance Tester** — End-to-end user testing, bug auditing, and cross-browser validation |
+| **Syahrur Ramadhan** | `2211501047` | **Quality Assurance Tester** — End-to-End user testing, bug auditing, and cross-browser validation |
 
 **Institutional Affiliation**:  
 *Program Studi Teknologi Informasi, Fakultas Sains dan Teknologi, Universitas 'Aisyiyah Yogyakarta*  
